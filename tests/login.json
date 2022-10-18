@@ -1,0 +1,48 @@
+{
+    "config": {
+        "name": "testcase description"
+    },
+    "teststeps": [
+        {
+            "name": "",
+            "request": {
+                "method": "POST",
+                "url": "http://127.0.0.1:5000/login",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Cache-Control": "no-cache",
+                    "Connection": "keep-alive",
+                    "Content-Length": "58",
+                    "Content-Type": "application/json",
+                    "Host": "127.0.0.1",
+                    "User-Agent": "PostmanRuntime/7.28.4"
+                },
+                "cookies": {
+                    "sails.sid": "s%3Ack89N2nb1AxU-T-nxvJrvOS1KvUXbiU2.3nAhh%2FjA%2F%2FNvHtWI8NApXa1QWV3hDD6LBsfUwpIdYQc"
+                },
+                "body": "{\"username\": \"100@example.com\", \"password\": \"123\"}"
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "application/json",
+                    "msg": "assert response header Content-Type"
+                },
+                {
+                    "check": "body.groupid",
+                    "assert": "equals",
+                    "expect": "0",
+                    "msg": "assert response body json"
+                }
+            ]
+        }
+    ]
+}
